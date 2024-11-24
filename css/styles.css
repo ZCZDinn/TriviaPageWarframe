@@ -107,6 +107,19 @@ body {
   
 }
 
+body.factions {
+  background-image: url("../assets/WarframeBackground.jpg");
+}
+body.resources {
+  background-image: url("../assets/WarframeBackground.jpg");
+}
+body.warframes {
+  background-image: url("../assets/WarframeBackground.jpg");
+}
+body.weapons {
+  background-image: url("../assets/WarframeBackground.jpg");
+}
+
 hr {
   margin: 1rem 0;
   color: inherit;
