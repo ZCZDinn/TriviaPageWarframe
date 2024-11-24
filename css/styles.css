@@ -638,8 +638,10 @@ progress {
 }
 
 .figure-img {
-  width: 500;
-  height: 300;
+  object-fit: fill;
+  border: solid black 1px;
+  border-radius: 8px;
+  margin:auto;
 }
 
 .figure-caption {
@@ -650,6 +652,8 @@ progress {
   border-radius: 8px;
   background-color: rgb(255, 255, 255, 0.7);
 }
+
+
 
 .container,
 .container-fluid,
