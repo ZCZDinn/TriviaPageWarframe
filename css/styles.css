@@ -645,6 +645,7 @@ progress {
   border: solid black 1px;
   border-radius: 8px;
   margin:auto;
+  background-color: rgb(255, 255, 255, 0.7);
   margin-bottom: 10px;
 }
 
