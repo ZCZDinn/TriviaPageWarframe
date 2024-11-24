@@ -632,22 +632,34 @@ progress {
   padding: 10px;
   border: solid black 1px;
   border-radius: 8px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: large;
   background-color: rgb(255, 255, 255, 0.7);
 }
 
 .figure-img {
-  object-fit: fill;
+  width:60vw;
+  height:30vh;
+  object-position: center;
+  object-fit:scale-down;
   border: solid black 1px;
   border-radius: 8px;
   margin:auto;
+  margin-bottom: 10px;
 }
 
 .figure-caption {
   text-align: center;
   padding: 25px;
   font-size: large;
+  border: solid black 1px;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255, 0.7);
+}
+
+.figure-option {
+  text-align: center;
+  padding: 3px;
   border: solid black 1px;
   border-radius: 8px;
   background-color: rgb(255, 255, 255, 0.7);
