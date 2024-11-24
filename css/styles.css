@@ -124,6 +124,7 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
 
 h1, .h1 {
   font-size: calc(1.375rem + 1.5vw);
+  text-align: center;
 }
 @media (min-width: 1200px) {
   h1, .h1 {
@@ -133,6 +134,7 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: calc(1.325rem + 0.9vw);
+  text-align: center;
 }
 @media (min-width: 1200px) {
   h2, .h2 {
@@ -169,6 +171,10 @@ h6, .h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  
+  text-align: center;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 abbr[title] {
@@ -183,6 +189,10 @@ address {
   margin-bottom: 1rem;
   font-style: normal;
   line-height: inherit;
+}
+
+.pad_bottom {
+  padding-bottom: 35px;
 }
 
 ol,
@@ -341,10 +351,12 @@ th {
 
 label {
   display: inline-block;
+  margin-top: 10px;
+  text-align: right;
 }
 
 button {
-  border-radius: 0;
+  border-radius: 8px;
 }
 
 button:focus:not(:focus-visible) {
@@ -356,10 +368,11 @@ button,
 select,
 optgroup,
 textarea {
-  margin: 0;
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
+  margin-top:10px;
+  border-radius: 8px;
 }
 
 button,
@@ -615,17 +628,27 @@ progress {
 }
 
 .figure {
-  display: inline-block;
+  width:72vw;
+  padding: 10px;
+  border: solid black 1px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  font-size: large;
+  background-color: rgb(255, 255, 255, 0.7);
 }
 
 .figure-img {
-  margin-bottom: 0.5rem;
-  line-height: 1;
+  width: 500;
+  height: 300;
 }
 
 .figure-caption {
-  font-size: 0.875em;
-  color: #6c757d;
+  text-align: center;
+  padding: 25px;
+  font-size: large;
+  border: solid black 1px;
+  border-radius: 8px;
+  background-color: rgb(255, 255, 255, 0.7);
 }
 
 .container,
@@ -635,14 +658,16 @@ progress {
 .container-lg,
 .container-md,
 .container-sm {
-  --bs-gutter-x: 1.5rem;
-  --bs-gutter-y: 0;
-  width: 100%;
-  padding-right: calc(var(--bs-gutter-x) * 0.5);
-  padding-left: calc(var(--bs-gutter-x) * 0.5);
-  margin-right: auto;
-  margin-left: auto;
+  height: 90vh;
+  width: 85vw;
+  margin:auto;
+  margin-top: 5vh;
   border: solid black 1px;
+  border-radius: 8px;
+  background-color: rgba(129, 207, 255, 0.7);
+  padding: 40px;
+  padding-top: 10px;
+
 }
 
 @media (min-width: 576px) {
@@ -678,6 +703,7 @@ progress {
   margin-top: calc(-1 * var(--bs-gutter-y));
   margin-right: calc(-0.5 * var(--bs-gutter-x));
   margin-left: calc(-0.5 * var(--bs-gutter-x));
+  text-align: center;
 }
 .row > * {
   flex-shrink: 0;
