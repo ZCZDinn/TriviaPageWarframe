@@ -654,7 +654,7 @@ progress {
   width:60vw;
   height:30vh;
   object-position: center;
-  object-fit:scale-down;
+  object-fit:cover;
   border: solid black 1px;
   border-radius: 8px;
   margin:auto;
