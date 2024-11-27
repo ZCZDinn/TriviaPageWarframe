@@ -67,6 +67,31 @@ const beginTrivia = () => {
 	questionCounter = 0
 }
 
+const randomizer = (list) => {
+	let randomizeQuestions = [];
+	let questionSelect = 0;
+	let counter = 0;
+	for (let i = list.length; i>=1; i--) {
+		questionSelect = Math.floor(Math.random() * i);
+		randomizeQuestions[counter] = list[questionSelect];
+		counter++;
+		list.splice(questionSelect, 1);
+	}
+	return randomizeQuestions;
+}
+
+const loadFacAnswers = () => {
+	if (window.location.href.endsWith("factionsTrivia.html")) {
+		
+	} else if (window.location.href.endsWith("resourcesTrivia.html")) {
+		
+	} else if (window.location.href.endsWith("warframesTrivia.html")) {
+		
+	} else if (window.location.href.endsWith("weaponsTrivia.html")) {
+		
+	}
+}
+
 
 document.addEventListener("DOMContentLoaded", () => {
 	// add event handlers
@@ -99,20 +124,20 @@ document.addEventListener("DOMContentLoaded", () => {
 		"What is the name of the craftable resource that can double your warframe mod capacity?",
 		"What is the name of the craftable resource that can double your weapon mod capacity?",
 		"What is the name of the crafttable resource that can modify mod polarity slots?",
-		"Which of these resources is used for crafting Corpus weapons?",
-		"Which of these resources is used for crafting Grineer weapons?",
-		"Which of these resources is obtained in high quantity from Infested Missions?"];
+		"Which of these resources is specifically used for crafting Corpus weapons?",
+		"Which of these resources is specifically used for crafting Grineer weapons?",
+		"Which of these resources is obtained in absurdly high quantity from Infested Missions?"];
 	
 	const resourceAnsQ1 = ["Argon Crystal", "Morphics", "Orokin Cells", "Tellurium"]
 	const resourceAnsQ2 = ["Orokin Cells", "Forma", "Argon Crystal", "Iradite"]
 	const resourceAnsQ3 = ["Iradite", "Tellurium", "Plastids", "Carbides"]
 	const resourceAnsQ4 = ["Tellurium", "Vome", "Neurodes", "Mutagen Sample"]
-	const resourceAnsQ5 = []
-	const resourceAnsQ6 = []
-	const resourceAnsQ7 = []
-	const resourceAnsQ8 = []
-	const resourceAnsQ9 = []
-	const resourceAnsQ10 = []
+	const resourceAnsQ5 = ["Orokin Catalyst", "Orokin Reactor", "Orokin Cell", "Forma"]
+	const resourceAnsQ6 = ["Orokin Catalyst", "Orokin Reactor", "Orokin Cell", "Forma"]
+	const resourceAnsQ7 = ["Orokin Catalyst", "Orokin Reactor", "Orokin Cell", "Forma"]
+	const resourceAnsQ8 = ["Carbides", "Detonite Injector", "Fieldron", "Circuits"]
+	const resourceAnsQ9 = ["Carbides", "Detonite Injector", "Fieldron", "Circuits"]
+	const resourceAnsQ10 = ["Mutagen Sample", "Nano Spores", "Neurodes", "Plastids"]
 
 	let warframesQuestions = ["In Warframe, which of the following Warframes is NOT primarily known for stealth abilities?",
 		"Which of these is NOT a playable Warframe?",
@@ -125,6 +150,17 @@ document.addEventListener("DOMContentLoaded", () => {
 		"What is the name of the connection used by the Tenno to command warframes?",
 		"Which frame is a skeletal amalgamation of void entities and various warframe parts?"];
 
+	const warframeAnsQ1 = ["Rhino", "Ash", "Ivara", "Loki"];
+	const warframeAnsQ2 = ["Khora", "Kullervo", "Koumei", "Psyloque"];
+	const warframeAnsQ3 = ["Ash", "Ember", "Inaros", "Atlas"];
+	const warframeAnsQ4 = ["Grendel", "Gauss", "Hydroid", "Lavos"];
+	const warframeAnsQ5 = ["Koumei", "Ivara", "Kullervo", "Ace"];
+	const warframeAnsQ6 = ["Khora", "Jade", "Saryn", "Emeralt"];
+	const warframeAnsQ7 = ["Koumei", "Valkyr", "Khora", "Voruna"];
+	const warframeAnsQ8 = ["Necramech", "Orbiter", "Archwing", "K-Drive"];
+	const warframeAnsQ9 = ["Transference", "Holo-cast", "Soma-sync", "Wi-fi"];
+	const warframeAnsQ10 = ["Nekros", "Xaku", "Protea", "Kullervo"];
+
 	let weaponsQuestions = ["Which of the following prime weapons is for an Archwing/Voidrig?",
 		"What is the name of the fleet ship used by the Tenno for planetary scale combat?",
 		"What is the name of the hip attached flight device, that allows frames to freely move through space?",
@@ -136,7 +172,18 @@ document.addEventListener("DOMContentLoaded", () => {
 		"What is Mesa's preferred weapon type?",
 		"Which of these weapons is only usable by a Drifter?"];
 
-	const randomizeQuestions = [];
+	const weaponAnsQ1 = ["Larkspur Prime", "Tiberon Prime", "Latron Prime", "Fang Prime"];
+	const weaponAnsQ2 = ["Orbiter", "Railjack", "Disruptor", "Capital Ship"];
+	const weaponAnsQ3 = ["K-Drive", "Star Skimmer", "Archwing", "Omni-Jet"];
+	const weaponAnsQ4 = ["Archomech", "Archwing", "Railjack","Necramech"];
+	const weaponAnsQ5 = ["Skiajati", "Sun & Moon", "Dex Nikana", "Umbral Cleaver"];
+	const weaponAnsQ6 = ["Machete", "Whip", "Dagger", "Staff"];
+	const weaponAnsQ7 = ["Shock", "Radiation", "Toxin", "Magnetic"];
+	const weaponAnsQ8 = ["Saryn", "Atlas", "Inaros", "Dante"];
+	const weaponAnsQ9 = ["Dual Pistols", "Sniper", "Sub-Machine Gun", "Dagger"];
+	const weaponAnsQ10 = ["Larkspur", "Sirocco", "Skana", "Nikana"];
+
+	let randomizeQuestions = [];
 	let correctCounter = 0;
 	let questionCounter = 0;
 	let questionDisplay = 0;
@@ -165,50 +212,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		if (window.location.href.endsWith("factionsTrivia.html")) {
 			$("#body").style.backgroundImage = "url('assets/FactionsBackground.jpg')";
-			let questionSelect = 0;
-			let counter = 0;
-			for (let i = factionsQuestions.length; i>=1; i--) {
-				questionSelect = Math.floor(Math.random() * i);
-				randomizeQuestions[counter] = factionsQuestions[questionSelect];
-				counter++;
-				factionsQuestions.splice(questionSelect, 1);
-			}
+			randomizeQuestions = randomizer(factionsQuestions)
 		}
 	
 		if (window.location.href.endsWith("resourcesTrivia.html")) {
 			$("#body").style.backgroundImage = "url('assets/ResourcesBackground.webp')";
-			let questionSelect = 0;
-			let counter = 0;
-			for (let i = resourcesQuestions.length; i>=1; i--) {
-				questionSelect = Math.floor(Math.random() * i);
-				randomizeQuestions[counter] = resourcesQuestions[questionSelect];
-				counter++;
-				resourcesQuestions.splice(questionSelect, 1);
-			}
+			randomizeQuestions = randomizer(resourcesQuestions)
 		}
 	
 		if (window.location.href.endsWith("warframesTrivia.html")) {
 			$("#body").style.backgroundImage = "url('assets/WarframesBackground.webp')";
-			let questionSelect = 0;
-			let counter = 0;
-			for (let i = warframesQuestions.length; i>=1; i--) {
-				questionSelect = Math.floor(Math.random() * i);
-				randomizeQuestions[counter] = warframesQuestions[questionSelect];
-				counter++;
-				warframesQuestions.splice(questionSelect, 1);
-			}
+			randomizeQuestions = randomizer(warframesQuestions)
 		}
 	
 		if (window.location.href.endsWith("weaponsTrivia.html")) {
 			$("#body").style.backgroundImage = "url('assets/WeaponsBackground.jpg')";
-			let questionSelect = 0;
-			let counter = 0;
-			for (let i = weaponsQuestions.length; i>=1; i--) {
-				questionSelect = Math.floor(Math.random() * i);
-				randomizeQuestions[counter] = weaponsQuestions[questionSelect];
-				counter++;
-				weaponsQuestions.splice(questionSelect, 1);
-			}
+			randomizeQuestions = randomizer(weaponsQuestions)
 		}
 
 		$("#questionText").textContent = randomizeQuestions[questionDisplay];
