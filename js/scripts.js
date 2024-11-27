@@ -83,27 +83,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const factionAnsQ1 = ["The Tenno", "The Voidwalkers", "The Orokin", "The Star Children"];
 	const factionAnsQ2 = ["Future Warriors", "Eldritch Mages", "Ancient Warriors", "Orokin Hosts"];
-	const factionAnsQ3 = [];
-	const factionAnsQ4 = [];
-	const factionAnsQ5 = [];
-	const factionAnsQ6 = [];
-	const factionAnsQ7 = [];
-	const factionAnsQ8 = [];
-	const factionAnsQ9 = [];
-	const factionAnsQ10 = [];
+	const factionAnsQ3 = ["The Grineer", "The Corpus", "The Infested", "The Orokin"];
+	const factionAnsQ4 = ["The Grineer", "The Corpus", "The Infested", "The Orokin"];
+	const factionAnsQ5 = ["The Grineer", "The Corpus", "The Infested", "The Orokin"];
+	const factionAnsQ6 = ["The Grineer", "The Corpus", "The Infested", "The Orokin"];
+	const factionAnsQ7 = ["The Grineer", "The Corpus", "The Infested", "The Orokin"];
+	const factionAnsQ8 = ["Elementals", "Eximus", "Exilus", "Exotics"];
+	const factionAnsQ9 = ["The Grineer", "The Corpus", "The Infested", "The Orokin"];
+	const factionAnsQ10 = ["The Grineer", "The Corpus", "The Infested", "The Orokin"];
 
-	const resourcesQuestions = ["Which of these resources is only obtainable on Archwing Missions?",
+	let resourcesQuestions = ["Which of these resources is only obtainable on Archwing Missions?",
 		"Which of these resources have a decay timer (item is lost if not used before timer runs out)?",
-		"Which of these resources is obtainable in the Plains of Eidolon?",
-		"Which of these resources is obtainable from Deimos?",
+		"Which of these resources is only obtainable in the Plains of Eidolon?",
+		"Which of these resources is only obtainable from the Cambion Drift?",
 		"What is the name of the craftable resource that can double your warframe mod capacity?",
 		"What is the name of the craftable resource that can double your weapon mod capacity?",
 		"What is the name of the crafttable resource that can modify mod polarity slots?",
 		"Which of these resources is used for crafting Corpus weapons?",
 		"Which of these resources is used for crafting Grineer weapons?",
 		"Which of these resources is obtained in high quantity from Infested Missions?"];
+	
+	const resourceAnsQ1 = ["Argon Crystal", "Morphics", "Orokin Cells", "Tellurium"]
+	const resourceAnsQ2 = ["Orokin Cells", "Forma", "Argon Crystal", "Iradite"]
+	const resourceAnsQ3 = ["Iradite", "Tellurium", "Plastids", "Carbides"]
+	const resourceAnsQ4 = ["Tellurium", "Vome", "Neurodes", "Mutagen Sample"]
+	const resourceAnsQ5 = []
+	const resourceAnsQ6 = []
+	const resourceAnsQ7 = []
+	const resourceAnsQ8 = []
+	const resourceAnsQ9 = []
+	const resourceAnsQ10 = []
 
-	const warframesQuestions = ["In Warframe, which of the following Warframes is NOT primarily known for stealth abilities?",
+	let warframesQuestions = ["In Warframe, which of the following Warframes is NOT primarily known for stealth abilities?",
 		"Which of these is NOT a playable Warframe?",
 		"Which of these warframes are represented as a female Warframe?",
 		"Which of these warframes are known for pirate-like appearance and corrosive abilities?",
@@ -114,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		"What is the name of the connection used by the Tenno to command warframes?",
 		"Which frame is a skeletal amalgamation of void entities and various warframe parts?"];
 
-	const weaponsQuestions = ["Which of the following prime weapons is for an Archwing/Voidrig?",
+	let weaponsQuestions = ["Which of the following prime weapons is for an Archwing/Voidrig?",
 		"What is the name of the fleet ship used by the Tenno for planetary scale combat?",
 		"What is the name of the hip attached flight device, that allows frames to freely move through space?",
 		"What is the name of the ground based Mech introduced in the Deimos update?",
