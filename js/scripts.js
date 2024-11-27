@@ -4,17 +4,18 @@ const $ = selector => document.querySelector(selector);
 let timer = null;
 let correctCounter = 0;
 let questionCounter = 0;
+let questionDisplay = 0;
 
-const factionsQuestions = ["In this game players control the members of:",
-	"Tenno is a race of:",
-	"Which enemy faction specializes in shields and robotic entities?",
-	"Which enemy faction specializes in armor plating and toxic damage?",
-	"Which enemy faction has no sheilds or armor, but makes up for it in absurdly high spawn rate?",
-	"Which enemy faction is directly involved with the history of the Tenno?",
-	"Which enemy faction holds an enemy that can make you drop your equipped weapons?",
-	"What is the name of buffed elemental enemies in enemy factions?",
-	"Which enemy faction is known for having a collective hive mind?",
-	"Which enemy faction can corrupt (assimilate) enemies of any other faction?"];
+// const factionsQuestions = ["In this game players control the members of:",
+// 	"Tenno is a race of:",
+// 	"Which enemy faction specializes in shields and robotic entities?",
+// 	"Which enemy faction specializes in armor plating and toxic damage?",
+// 	"Which enemy faction has no sheilds or armor, but makes up for it in absurdly high spawn rate?",
+// 	"Which enemy faction is directly involved with the history of the Tenno?",
+// 	"Which enemy faction holds an enemy that can make you drop your equipped weapons?",
+// 	"What is the name of buffed elemental enemies in enemy factions?",
+// 	"Which enemy faction is known for having a collective hive mind?",
+// 	"Which enemy faction can corrupt (assimilate) enemies of any other faction?"];
 
 const resourcesQuestions = ["Which of these resources is only obtainable on Archwing Missions?",
 	"Which of these resources have a decay timer (item is lost if not used before timer runs out)?",
@@ -106,11 +107,15 @@ const beginTrivia = () => {
 	} else {
 
 	}
+	correctCounter = 0
+	questionCounter = 0
 }
 
 
 document.addEventListener("DOMContentLoaded", () => {
-	// add event handlers
+	// add event handlers	
+	const randomizeQuestions = [];
+	let factionsQuestions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 	if (window.location.href.endsWith("mainMenu.html")) {
 		$("#factions").addEventListener("click", factionSelect);
 		$("#resources").addEventListener("click", resourceSelect);
@@ -125,21 +130,59 @@ document.addEventListener("DOMContentLoaded", () => {
 		$("#multiB").addEventListener("click", bSelect);
 		$("#multiC").addEventListener("click", cSelect);
 		$("#multiD").addEventListener("click", dSelect);
+
+		if (window.location.href.endsWith("factionsTrivia.html")) {
+			$("#body").style.backgroundImage = "url('assets/FactionsBackground.jpg')";
+			let questionSelect = 0;
+			let counter = 0;
+			for (let i = factionsQuestions.length; i>=1; i--) {
+				questionSelect = Math.floor(Math.random() * i);
+				randomizeQuestions[counter] = factionsQuestions[questionSelect];
+				counter++;
+				factionsQuestions.splice(questionSelect, 1);
+				console.log(questionSelect);
+				console.log(factionsQuestions);
+				console.log(randomizeQuestions);
+			}
+			factionsQuestions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+		}
+	
+		if (window.location.href.endsWith("resourcesTrivia.html")) {
+			$("#body").style.backgroundImage = "url('assets/ResourcesBackground.webp')";
+		}
+	
+		if (window.location.href.endsWith("warframesTrivia.html")) {
+			$("#body").style.backgroundImage = "url('assets/WarframesBackground.webp')";
+		}
+	
+		if (window.location.href.endsWith("weaponsTrivia.html")) {
+			$("#body").style.backgroundImage = "url('assets/WeaponsBackground.jpg')";
+		}
+
+		$("#questionText").textContent = randomizeQuestions[questionDisplay];
+		$("#submit").addEventListener("click", () => {
+			if ($("#category_select").value == "") {
+
+			} else {
+				if ($("#submit").textContent == "Submit") {
+					questionDisplay = questionDisplay + 1
+					clearInterval(timer)
+					timer = null
+					$("#submit").textContent = "Next Question"
+				} else if ($("#submit").textContent == "Next Question") {
+					timer = setInterval(updateTimer, 1000);
+					$("#questionText").textContent = randomizeQuestions[questionDisplay];
+					$("#timer").textContent = 30;
+					$("#submit").textContent = "Submit";
+					$("#category_select").value = "";
+				}
+			}
+		})
+	
+		
+
+
 	}
 
-	if (window.location.href.endsWith("factionsTrivia.html")) {
-		$("#body").style.backgroundImage = "url('assets/FactionsBackground.jpg')";
-	}
-
-	if (window.location.href.endsWith("resourcesTrivia.html")) {
-		$("#body").style.backgroundImage = "url('assets/ResourcesBackground.webp')";
-	}
-
-	if (window.location.href.endsWith("warframesTrivia.html")) {
-		$("#body").style.backgroundImage = "url('assets/WarframesBackground.webp')";
-	}
-
-	if (window.location.href.endsWith("weaponsTrivia.html")) {
-		$("#body").style.backgroundImage = "url('assets/WeaponsBackground.jpg')";
-	}
+	
 });
