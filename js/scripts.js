@@ -6,50 +6,6 @@ let correctCounter = 0;
 let questionCounter = 0;
 let questionDisplay = 0;
 
-// const factionsQuestions = ["In this game players control the members of:",
-// 	"Tenno is a race of:",
-// 	"Which enemy faction specializes in shields and robotic entities?",
-// 	"Which enemy faction specializes in armor plating and toxic damage?",
-// 	"Which enemy faction has no sheilds or armor, but makes up for it in absurdly high spawn rate?",
-// 	"Which enemy faction is directly involved with the history of the Tenno?",
-// 	"Which enemy faction holds an enemy that can make you drop your equipped weapons?",
-// 	"What is the name of buffed elemental enemies in enemy factions?",
-// 	"Which enemy faction is known for having a collective hive mind?",
-// 	"Which enemy faction can corrupt (assimilate) enemies of any other faction?"];
-
-const resourcesQuestions = ["Which of these resources is only obtainable on Archwing Missions?",
-	"Which of these resources have a decay timer (item is lost if not used before timer runs out)?",
-	"Which of these resources is obtainable in the Plains of Eidolon?",
-	"Which of these resources is obtainable from Deimos?",
-	"What is the name of the craftable resource that can double your warframe mod capacity?",
-	"What is the name of the craftable resource that can double your weapon mod capacity?",
-	"What is the name of the crafttable resource that can modify mod polarity slots?",
-	"Which of these resources is used for crafting Corpus weapons?",
-	"Which of these resources is used for crafting Grineer weapons?",
-	"Which of these resources is obtained in high quantity from Infested Missions?"];
-
-const warframesQuestions = ["In Warframe, which of the following Warframes is NOT primarily known for stealth abilities?",
-	"Which of these is NOT a playable Warframe?",
-	"Which of these warframes are represented as a female Warframe?",
-	"Which of these warframes are known for pirate-like appearance and corrosive abilities?",
-	"Which of these warframes is a newly added 'Gambler' class?",
-	"Which of these warframes had a close relationship with The Stalker, changing his aura from red to green?",
-	"Which of these warframes has abilities focused around the command of a Kavat (Cat like beast in Warframe)?",
-	"What is the name of the the rideable hoverboard mount for warframes?",
-	"What is the name of the connection used by the Tenno to command warframes?",
-	"Which frame is a skeletal amalgamation of void entities and various warframe parts"];
-
-const weaponsQuestions = ["Which of the following prime weapons is for an Archwing/Voidrig?",
-	"What is the name of the fleet ship used by the Tenno for planetary scale combat?",
-	"What is the name of the hip attached flight device, that allows frames to freely move through space?",
-	"What is the name of the ground based Mech introduced in the Deimos update?",
-	"Which of these weapons is obtained along with Exalibur Umbra as his weapon of choice?",
-	"What is Khora's focused melee weapon type?",
-	"What elemental weapon damage does Saryn specialize in?",
-	"Which of these frames have a summonable weapon (abilty that summons usable weapon)?",
-	"What is Mesa's preferred weapon type?",
-	"Which of these weapons is only usable by a Drifter?"];
-
 const factionSelect = () => {
     $("#category_select").value = $("#factions").textContent;
 }
@@ -113,9 +69,74 @@ const beginTrivia = () => {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-	// add event handlers	
+	// add event handlers
+	let factionsQuestions = ["In this game players control the members of:",
+		"Tenno is a race of:",
+		"Which enemy faction specializes in shields and robotic entities?",
+		"Which enemy faction specializes in armor plating and toxic damage?",
+		"Which enemy faction has no sheilds or armor, but makes up for it in absurdly high spawn rate?",
+		"Which enemy faction is directly involved with the history of the Tenno?",
+		"Which enemy faction holds an enemy that can make you drop your equipped weapons?",
+		"What is the name of buffed elemental enemies in enemy factions?",
+		"Which enemy faction is known for having a collective hive mind?",
+		"Which enemy faction can corrupt (assimilate) enemies of any other faction?"];
+
+	const factionAnsQ1 = ["The Tenno", "The Voidwalkers", "The Orokin", "The Star Children"];
+	const factionAnsQ2 = ["Future Warriors", "Eldritch Mages", "Ancient Warriors", "Orokin Hosts"];
+	const factionAnsQ3 = [];
+	const factionAnsQ4 = [];
+	const factionAnsQ5 = [];
+	const factionAnsQ6 = [];
+	const factionAnsQ7 = [];
+	const factionAnsQ8 = [];
+	const factionAnsQ9 = [];
+	const factionAnsQ10 = [];
+
+	const resourcesQuestions = ["Which of these resources is only obtainable on Archwing Missions?",
+		"Which of these resources have a decay timer (item is lost if not used before timer runs out)?",
+		"Which of these resources is obtainable in the Plains of Eidolon?",
+		"Which of these resources is obtainable from Deimos?",
+		"What is the name of the craftable resource that can double your warframe mod capacity?",
+		"What is the name of the craftable resource that can double your weapon mod capacity?",
+		"What is the name of the crafttable resource that can modify mod polarity slots?",
+		"Which of these resources is used for crafting Corpus weapons?",
+		"Which of these resources is used for crafting Grineer weapons?",
+		"Which of these resources is obtained in high quantity from Infested Missions?"];
+
+	const warframesQuestions = ["In Warframe, which of the following Warframes is NOT primarily known for stealth abilities?",
+		"Which of these is NOT a playable Warframe?",
+		"Which of these warframes are represented as a female Warframe?",
+		"Which of these warframes are known for pirate-like appearance and corrosive abilities?",
+		"Which of these warframes is a newly added 'Gambler' class?",
+		"Which of these warframes had a close relationship with The Stalker, changing his aura from red to green?",
+		"Which of these warframes has abilities focused around the command of a Kavat (Cat like beast in Warframe)?",
+		"What is the name of the the rideable hoverboard mount for warframes?",
+		"What is the name of the connection used by the Tenno to command warframes?",
+		"Which frame is a skeletal amalgamation of void entities and various warframe parts?"];
+
+	const weaponsQuestions = ["Which of the following prime weapons is for an Archwing/Voidrig?",
+		"What is the name of the fleet ship used by the Tenno for planetary scale combat?",
+		"What is the name of the hip attached flight device, that allows frames to freely move through space?",
+		"What is the name of the ground based Mech introduced in the Deimos update?",
+		"Which of these weapons is obtained along with Exalibur Umbra as his weapon of choice?",
+		"What is Khora's focused melee weapon type?",
+		"What elemental weapon damage does Saryn specialize in?",
+		"Which of these frames have a summonable weapon (abilty that summons usable weapon)?",
+		"What is Mesa's preferred weapon type?",
+		"Which of these weapons is only usable by a Drifter?"];
+
 	const randomizeQuestions = [];
-	let factionsQuestions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+	let correctCounter = 0;
+	let questionCounter = 0;
+	let questionDisplay = 0;
+
+	$("#restart").addEventListener("click", () => {
+		window.location.href = "mainMenu.html";
+		correctCounter = 0;
+		questionCounter = 0;
+		questionDisplay = 0;
+	})
+
 	if (window.location.href.endsWith("mainMenu.html")) {
 		$("#factions").addEventListener("click", factionSelect);
 		$("#resources").addEventListener("click", resourceSelect);
@@ -140,23 +161,43 @@ document.addEventListener("DOMContentLoaded", () => {
 				randomizeQuestions[counter] = factionsQuestions[questionSelect];
 				counter++;
 				factionsQuestions.splice(questionSelect, 1);
-				console.log(questionSelect);
-				console.log(factionsQuestions);
-				console.log(randomizeQuestions);
 			}
-			factionsQuestions = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 		}
 	
 		if (window.location.href.endsWith("resourcesTrivia.html")) {
 			$("#body").style.backgroundImage = "url('assets/ResourcesBackground.webp')";
+			let questionSelect = 0;
+			let counter = 0;
+			for (let i = resourcesQuestions.length; i>=1; i--) {
+				questionSelect = Math.floor(Math.random() * i);
+				randomizeQuestions[counter] = resourcesQuestions[questionSelect];
+				counter++;
+				resourcesQuestions.splice(questionSelect, 1);
+			}
 		}
 	
 		if (window.location.href.endsWith("warframesTrivia.html")) {
 			$("#body").style.backgroundImage = "url('assets/WarframesBackground.webp')";
+			let questionSelect = 0;
+			let counter = 0;
+			for (let i = warframesQuestions.length; i>=1; i--) {
+				questionSelect = Math.floor(Math.random() * i);
+				randomizeQuestions[counter] = warframesQuestions[questionSelect];
+				counter++;
+				warframesQuestions.splice(questionSelect, 1);
+			}
 		}
 	
 		if (window.location.href.endsWith("weaponsTrivia.html")) {
 			$("#body").style.backgroundImage = "url('assets/WeaponsBackground.jpg')";
+			let questionSelect = 0;
+			let counter = 0;
+			for (let i = weaponsQuestions.length; i>=1; i--) {
+				questionSelect = Math.floor(Math.random() * i);
+				randomizeQuestions[counter] = weaponsQuestions[questionSelect];
+				counter++;
+				weaponsQuestions.splice(questionSelect, 1);
+			}
 		}
 
 		$("#questionText").textContent = randomizeQuestions[questionDisplay];
@@ -164,11 +205,17 @@ document.addEventListener("DOMContentLoaded", () => {
 			if ($("#category_select").value == "") {
 
 			} else {
+				questionCounter
 				if ($("#submit").textContent == "Submit") {
 					questionDisplay = questionDisplay + 1
 					clearInterval(timer)
 					timer = null
-					$("#submit").textContent = "Next Question"
+					questionCounter = questionCounter + 1
+					if (questionCounter < 10) {
+						$("#submit").textContent = "Next Question"
+					} else {
+						$("#submit").textContent = "Return To Menu"
+					}
 				} else if ($("#submit").textContent == "Next Question") {
 					timer = setInterval(updateTimer, 1000);
 					$("#questionText").textContent = randomizeQuestions[questionDisplay];
