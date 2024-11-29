@@ -80,6 +80,54 @@ const randomizer = (list) => {
 	return randomizeQuestions;
 }
 
+const reloadQuestions = () => {
+	let factionsQuestions = ["In this game players control the members of:",
+		"Tenno is a race of:",
+		"Which enemy faction specializes in shields and robotic entities?",
+		"Which enemy faction specializes in armor plating and toxic damage?",
+		"Which enemy faction has no sheilds or armor, but makes up for it in absurdly high spawn rate?",
+		"Which enemy faction is directly involved with the history of the Tenno?",
+		"Which enemy faction holds an enemy that can make you drop your equipped weapons?",
+		"What is the name of buffed elemental enemies in enemy factions?",
+		"Which enemy faction is known for having a collective hive mind?",
+		"Which enemy faction can corrupt (assimilate) enemies of any other faction?"];
+
+	let resourcesQuestions = ["Which of these resources is only obtainable on Archwing Missions?",
+		"Which of these resources have a decay timer (item is lost if not used before timer runs out)?",
+		"Which of these resources is only obtainable in the Plains of Eidolon?",
+		"Which of these resources is only obtainable from the Cambion Drift?",
+		"What is the name of the craftable resource that can double your warframe mod capacity?",
+		"What is the name of the craftable resource that can double your weapon mod capacity?",
+		"What is the name of the crafttable resource that can modify mod polarity slots?",
+		"Which of these resources is specifically used for crafting Corpus weapons?",
+		"Which of these resources is specifically used for crafting Grineer weapons?",
+		"Which of these resources is obtained in absurdly high quantity from Infested Missions?"];
+
+	let warframesQuestions = ["In Warframe, which of the following Warframes is NOT primarily known for stealth abilities?",
+		"Which of these is NOT a playable Warframe?",
+		"Which of these warframes are represented as a female Warframe?",
+		"Which of these warframes are known for pirate-like appearance and corrosive abilities?",
+		"Which of these warframes is a newly added 'Gambler' class?",
+		"Which of these warframes had a close relationship with The Stalker, changing his aura from red to green?",
+		"Which of these warframes has abilities focused around the command of a Kavat (Cat like beast in Warframe)?",
+		"What is the name of the the rideable hoverboard mount for warframes?",
+		"What is the name of the connection used by the Tenno to command warframes?",
+		"Which frame is a skeletal amalgamation of void entities and various warframe parts?"];
+
+	let weaponsQuestions = ["Which of the following prime weapons is for an Archwing/Voidrig?",
+		"What is the name of the fleet ship used by the Tenno for planetary scale combat?",
+		"What is the name of the hip attached flight device, that allows frames to freely move through space?",
+		"What is the name of the ground based Mech introduced in the Deimos update?",
+		"Which of these weapons is obtained along with Exalibur Umbra as his weapon of choice?",
+		"What is Khora's focused melee weapon type?",
+		"What elemental weapon damage does Saryn specialize in?",
+		"Which of these frames have a summonable weapon (abilty that summons usable weapon)?",
+		"What is Mesa's preferred weapon type?",
+		"Which of these weapons is only usable by a Drifter?"];
+
+	return factionsQuestions, resourcesQuestions, warframesQuestions, weaponsQuestions;
+}
+
 const loadAnswers = (factionList, resourceList, warframeList, weaponList) => {
 	let correctAnswer = "";
 
@@ -216,49 +264,7 @@ const loadAnswers = (factionList, resourceList, warframeList, weaponList) => {
 
 document.addEventListener("DOMContentLoaded", () => {
 	// add event handlers
-	let factionsQuestions = ["In this game players control the members of:",
-		"Tenno is a race of:",
-		"Which enemy faction specializes in shields and robotic entities?",
-		"Which enemy faction specializes in armor plating and toxic damage?",
-		"Which enemy faction has no sheilds or armor, but makes up for it in absurdly high spawn rate?",
-		"Which enemy faction is directly involved with the history of the Tenno?",
-		"Which enemy faction holds an enemy that can make you drop your equipped weapons?",
-		"What is the name of buffed elemental enemies in enemy factions?",
-		"Which enemy faction is known for having a collective hive mind?",
-		"Which enemy faction can corrupt (assimilate) enemies of any other faction?"];
-
-	let resourcesQuestions = ["Which of these resources is only obtainable on Archwing Missions?",
-		"Which of these resources have a decay timer (item is lost if not used before timer runs out)?",
-		"Which of these resources is only obtainable in the Plains of Eidolon?",
-		"Which of these resources is only obtainable from the Cambion Drift?",
-		"What is the name of the craftable resource that can double your warframe mod capacity?",
-		"What is the name of the craftable resource that can double your weapon mod capacity?",
-		"What is the name of the crafttable resource that can modify mod polarity slots?",
-		"Which of these resources is specifically used for crafting Corpus weapons?",
-		"Which of these resources is specifically used for crafting Grineer weapons?",
-		"Which of these resources is obtained in absurdly high quantity from Infested Missions?"];
-
-	let warframesQuestions = ["In Warframe, which of the following Warframes is NOT primarily known for stealth abilities?",
-		"Which of these is NOT a playable Warframe?",
-		"Which of these warframes are represented as a female Warframe?",
-		"Which of these warframes are known for pirate-like appearance and corrosive abilities?",
-		"Which of these warframes is a newly added 'Gambler' class?",
-		"Which of these warframes had a close relationship with The Stalker, changing his aura from red to green?",
-		"Which of these warframes has abilities focused around the command of a Kavat (Cat like beast in Warframe)?",
-		"What is the name of the the rideable hoverboard mount for warframes?",
-		"What is the name of the connection used by the Tenno to command warframes?",
-		"Which frame is a skeletal amalgamation of void entities and various warframe parts?"];
-
-	let weaponsQuestions = ["Which of the following prime weapons is for an Archwing/Voidrig?",
-		"What is the name of the fleet ship used by the Tenno for planetary scale combat?",
-		"What is the name of the hip attached flight device, that allows frames to freely move through space?",
-		"What is the name of the ground based Mech introduced in the Deimos update?",
-		"Which of these weapons is obtained along with Exalibur Umbra as his weapon of choice?",
-		"What is Khora's focused melee weapon type?",
-		"What elemental weapon damage does Saryn specialize in?",
-		"Which of these frames have a summonable weapon (abilty that summons usable weapon)?",
-		"What is Mesa's preferred weapon type?",
-		"Which of these weapons is only usable by a Drifter?"];
+	let factionsQuestions, resourcesQuestions, warframesQuestions, weaponsQuestions = reloadQuestions();
 
 	let randomizeQuestions = [];
 	let correctCounter = 0;
@@ -309,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 
 		$("#questionText").textContent = randomizeQuestions[questionDisplay];
-		correctAnswer = loadFacAnswers();
+		correctAnswer = loadAnswers();
 		console.log(correctAnswer);
 		$("#submit").addEventListener("click", () => {
 			if ($("#category_select").value == "") {
@@ -331,7 +337,7 @@ document.addEventListener("DOMContentLoaded", () => {
 					$("#timer").textContent = 30;
 					$("#submit").textContent = "Submit";
 					$("#category_select").value = "";
-					correctAnswer = loadFacAnswers();
+					correctAnswer = loadAnswers();
 					console.log(correctAnswer);
 				} else if ($("#submit").textContent == "Return To Menu") {
 					window.location.href = "mainMenu.html";
