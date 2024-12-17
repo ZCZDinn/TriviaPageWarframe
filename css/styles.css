@@ -102,8 +102,11 @@ body {
   background-color: var(--bs-body-bg);
   -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  background-image: url("../assets/WarframeBackground.jpg");
-  background-size: 100vw 100vh;
+  background-image: url("../assets/Warframe_Testing.webp");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  height: 100vh;
   
 }
 
@@ -654,7 +657,7 @@ progress {
   width:60vw;
   height:30vh;
   object-position: center;
-  object-fit:cover;
+  object-fit:scale-down;
   border: solid black 1px;
   border-radius: 8px;
   margin:auto;
