@@ -8,18 +8,55 @@ let questionDisplay = 0;
 
 const factionSelect = () => {
     $("#category_select").value = $("#factions").textContent;
+	const audio = $('#factionSelect');
+	if (!audio.paused) { 
+		audio.pause();
+		audio.currentTime = 0;
+	}
+	audio.play()
+		.catch(error => {
+			console.error('Audio playback failed:', error);
+		});
+	
 }
 
 const resourceSelect = () => {
 	$("#category_select").value = $("#resources").textContent;
+	const audio = $('#resourceSelect');
+	if (!audio.paused) { 
+		audio.pause();
+		audio.currentTime = 0;
+	}
+	audio.play()
+		.catch(error => {
+			console.error('Audio playback failed:', error);
+		});
 }
 
 const warframeSelect = () => {
 	$("#category_select").value = $("#warframes").textContent;
+	const audio = $('#warframeSelect');
+	if (!audio.paused) { 
+		audio.pause();
+		audio.currentTime = 0;
+	}
+	audio.play()
+		.catch(error => {
+			console.error('Audio playback failed:', error);
+		});
 }
 
 const weaponSelect = () => {
 	$("#category_select").value = $("#weapons").textContent;
+	const audio = $('#weaponSelect');
+	if (!audio.paused) { 
+		audio.pause();
+		audio.currentTime = 0;
+	}
+	audio.play()
+		.catch(error => {
+			console.error('Audio playback failed:', error);
+		});
 }
 
 const aSelect = () => {
@@ -65,6 +102,7 @@ const beginTrivia = () => {
 	}
 	correctCounter = 0
 	questionCounter = 0
+	
 }
 
 const randomizer = (list) => {
@@ -125,7 +163,7 @@ const reloadQuestions = () => {
 		"What is Mesa's preferred weapon type?",
 		"Which of these weapons is only usable by a Drifter?"];
 
-	return factionsQuestions, resourcesQuestions, warframesQuestions, weaponsQuestions;
+	return [factionsQuestions, resourcesQuestions, warframesQuestions, weaponsQuestions];
 }
 
 const loadAnswers = (factionList, resourceList, warframeList, weaponList) => {
@@ -256,6 +294,69 @@ const loadAnswers = (factionList, resourceList, warframeList, weaponList) => {
 		$("#multiC").textContent = resourceAnsQ3[2]
 		$("#multiD").textContent = resourceAnsQ3[3]
 		correctAnswer = resourceAnsQ3[0];
+	} else if ($("#questionText").textContent == resourceList[3]) {
+		$("#multiA").textContent = resourceAnsQ4[0]
+		$("#multiB").textContent = resourceAnsQ4[1]
+		$("#multiC").textContent = resourceAnsQ4[2]
+		$("#multiD").textContent = resourceAnsQ4[3]
+		correctAnswer = resourceAnsQ4[1];
+	} else if ($("#questionText").textContent == resourceList[4]) {
+		$("#multiA").textContent = resourceAnsQ5[0]
+		$("#multiB").textContent = resourceAnsQ5[1]
+		$("#multiC").textContent = resourceAnsQ5[2]
+		$("#multiD").textContent = resourceAnsQ5[3]
+		correctAnswer = resourceAnsQ5[1];
+	}  else if ($("#questionText").textContent == resourceList[5]) {
+		$("#multiA").textContent = resourceAnsQ6[0]
+		$("#multiB").textContent = resourceAnsQ6[1]
+		$("#multiC").textContent = resourceAnsQ6[2]
+		$("#multiD").textContent = resourceAnsQ6[3]
+		correctAnswer = resourceAnsQ6[0];
+	} else if ($("#questionText").textContent == resourceList[6]) {
+		$("#multiA").textContent = resourceAnsQ7[0]
+		$("#multiB").textContent = resourceAnsQ7[1]
+		$("#multiC").textContent = resourceAnsQ7[2]
+		$("#multiD").textContent = resourceAnsQ7[3]
+		correctAnswer = resourceAnsQ7[3];
+	} else if ($("#questionText").textContent == resourceList[7]) {
+		$("#multiA").textContent = resourceAnsQ8[0]
+		$("#multiB").textContent = resourceAnsQ8[1]
+		$("#multiC").textContent = resourceAnsQ8[2]
+		$("#multiD").textContent = resourceAnsQ8[3]
+		correctAnswer = resourceAnsQ8[2];
+	} else if ($("#questionText").textContent == resourceList[8]) {
+		$("#multiA").textContent = resourceAnsQ9[0]
+		$("#multiB").textContent = resourceAnsQ9[1]
+		$("#multiC").textContent = resourceAnsQ9[2]
+		$("#multiD").textContent = resourceAnsQ9[3]
+		correctAnswer = resourceAnsQ9[1];
+	} else if ($("#questionText").textContent == resourceList[9]) {
+		$("#multiA").textContent = resourceAnsQ10[0]
+		$("#multiB").textContent = resourceAnsQ10[1]
+		$("#multiC").textContent = resourceAnsQ10[2]
+		$("#multiD").textContent = resourceAnsQ10[3]
+		correctAnswer = resourceAnsQ10[1];
+	}
+
+
+	else if ($("#questionText").textContent == warframeList[0]) {
+		$("#multiA").textContent = warframeAnsQ1[0]
+		$("#multiB").textContent = warframeAnsQ1[1]
+		$("#multiC").textContent = warframeAnsQ1[2]
+		$("#multiD").textContent = warframeAnsQ1[3]
+		correctAnswer = warframeAnsQ1[0];
+	} else if ($("#questionText").textContent == warframeList[1]) {
+		$("#multiA").textContent = warframeAnsQ2[0]
+		$("#multiB").textContent = warframeAnsQ2[1]
+		$("#multiC").textContent = warframeAnsQ2[2]
+		$("#multiD").textContent = warframeAnsQ2[3]
+		correctAnswer = warframeAnsQ2[3];
+	} else if ($("#questionText").textContent == warframeList[2]) {
+		$("#multiA").textContent = warframeAnsQ3[0]
+		$("#multiB").textContent = warframeAnsQ4[1]
+		$("#multiC").textContent = warframeAnsQ5[2]
+		$("#multiD").textContent = warframeAnsQ6[3]
+		correctAnswer = warframeAnsQ1[];
 	}
 	//return the correct answer value for the question being displayed
 	return correctAnswer;
@@ -264,7 +365,6 @@ const loadAnswers = (factionList, resourceList, warframeList, weaponList) => {
 
 document.addEventListener("DOMContentLoaded", () => {
 	// add event handlers
-	let factionsQuestions, resourcesQuestions, warframesQuestions, weaponsQuestions = reloadQuestions();
 
 	let randomizeQuestions = [];
 	let correctCounter = 0;
@@ -285,6 +385,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		$("#warframes").addEventListener("click", warframeSelect);
 		$("#weapons").addEventListener("click", weaponSelect);
 		$("#begin").addEventListener("click", beginTrivia);
+            
 	} else {
 		if (timer == null) {
 			timer = setInterval(updateTimer, 1000);
@@ -293,6 +394,13 @@ document.addEventListener("DOMContentLoaded", () => {
 		$("#multiB").addEventListener("click", bSelect);
 		$("#multiC").addEventListener("click", cSelect);
 		$("#multiD").addEventListener("click", dSelect);
+
+		let allQuestions = reloadQuestions();
+		
+		let factionsQuestions = allQuestions[0];
+		let resourcesQuestions = allQuestions[1];
+		let warframesQuestions = allQuestions[2];
+		let weaponsQuestions = allQuestions[3];
 
 		if (window.location.href.endsWith("factionsTrivia.html")) {
 			$("#body").style.backgroundImage = "url('assets/FactionsBackground.jpg')";
@@ -313,9 +421,15 @@ document.addEventListener("DOMContentLoaded", () => {
 			$("#body").style.backgroundImage = "url('assets/WeaponsBackground.jpg')";
 			randomizeQuestions = randomizer(weaponsQuestions)
 		}
+		allQuestions = reloadQuestions();
+		
+		factionsQuestions = allQuestions[0];
+		resourcesQuestions = allQuestions[1];
+		warframesQuestions = allQuestions[2];
+		weaponsQuestions = allQuestions[3];
 
 		$("#questionText").textContent = randomizeQuestions[questionDisplay];
-		correctAnswer = loadAnswers();
+		correctAnswer = loadAnswers(factionsQuestions, resourcesQuestions, warframesQuestions, weaponsQuestions);
 		console.log(correctAnswer);
 		$("#submit").addEventListener("click", () => {
 			if ($("#category_select").value == "") {
